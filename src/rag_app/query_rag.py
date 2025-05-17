@@ -47,4 +47,4 @@ def query_rag(query_text: str) -> QueryResponse:
 
 
 if __name__ == "__main__":
-    query_rag("How can I contact support?")
+    query_rag("What is Self Attention?")
