@@ -1,0 +1,6 @@
+docker build --platform linux/amd64 -t aws_rag_app .
+
+docker run --platform linux/amd64 --rm -it \\n    --env-file .env \\n    --entrypoint python \\n    aws_rag_app src/test_credentials.py
+
+
+docker run --platform linux/amd64 --rm -it \\n    -p 8000:8000 \\n    -v ~/.aws:/root/.aws \\n    --entrypoint python \\n    aws_rag_app src/app_api_handler.py
