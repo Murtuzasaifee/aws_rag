@@ -5,6 +5,9 @@ from langchain_aws import ChatBedrock
 from src.rag_app.chromaDB import get_chroma_db
 import os
 import boto3
+from dotenv import load_dotenv
+
+load_dotenv()
 
 PROMPT_TEMPLATE = """
 Answer the question based only on the following context:

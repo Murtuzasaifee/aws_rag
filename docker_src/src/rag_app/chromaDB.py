@@ -4,6 +4,9 @@ from src.rag_app.embeddings import get_embedding
 import shutil
 import sys
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 CHROMA_PATH = os.environ.get("CHROMA_PATH", "src/data/chroma")
 IS_USING_IMAGE_RUNTIME = bool(os.environ.get("IS_USING_IMAGE_RUNTIME", False))

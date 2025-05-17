@@ -1,6 +1,9 @@
 from langchain_aws import BedrockEmbeddings
 import os
 import boto3
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_embedding():
     region = os.environ.get("AWS_DEFAULT_REGION", "us-east-1").strip()
