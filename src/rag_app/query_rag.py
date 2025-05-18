@@ -3,6 +3,11 @@ from typing import List
 from langchain.prompts import ChatPromptTemplate
 from langchain_aws import ChatBedrock
 from src.rag_app.chromaDB import get_chroma_db
+import os
+import boto3
+from dotenv import load_dotenv
+
+load_dotenv()
 
 PROMPT_TEMPLATE = """
 Answer the question based only on the following context:
@@ -34,7 +39,10 @@ def query_rag(query_text: str) -> QueryResponse:
     prompt = prompt_template.format(context=context_text, question=query_text)
     print(prompt)
 
-    model = ChatBedrock(model_id=BEDROCK_MODEL_ID)
+    session = boto3.Session(region_name=os.environ.get("AWS_DEFAULT_REGION", "us-east-1"), aws_access_key_id = os.environ.get("AWS_ACCESS_KEY_ID"),
+                            aws_secret_access_key = os.environ.get("AWS_SECRET_ACCESS_KEY"))
+
+    model = ChatBedrock(model_id=BEDROCK_MODEL_ID, region_name="us-east-1", client=session.client('bedrock-runtime'))
     response = model.invoke(prompt)
     response_text = response.content
 
