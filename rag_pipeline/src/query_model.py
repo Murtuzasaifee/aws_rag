@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 from botocore.exceptions import ClientError
 
-TABLE_NAME = os.environ.get("TABLE_NAME","rag-app")
+TABLE_NAME = os.environ.get("TABLE_NAME","RagQueryTable")
 
 
 class QueryModel(BaseModel):
