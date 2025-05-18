@@ -6,7 +6,7 @@ from src.query_model import QueryModel
 from src.rag_app.query_rag import query_rag
 
 app = FastAPI()
-handler = Mangum(app)  # Entry point for AWS Lambda.
+handler = Mangum(app)  # Entry point for AWS Lambda. Using Mangum for ASGI compatibility.
 
 
 class SubmitQueryRequest(BaseModel):
