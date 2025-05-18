@@ -15,7 +15,7 @@ class SubmitQueryRequest(BaseModel):
 
 @app.get("/")
 def index():
-    return {"Hello": "World"}
+    return {"AWS RAG Application FastAPI"}
 
 
 @app.get("/get_query")
