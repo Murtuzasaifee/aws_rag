@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from mangum import Mangum
 from pydantic import BaseModel
-from rag_app.query_rag import QueryResponse, query_rag
+from src.rag_app.query_rag import QueryResponse, query_rag
 
 app = FastAPI()
 handler = Mangum(app)  # Entry point for AWS Lambda.
