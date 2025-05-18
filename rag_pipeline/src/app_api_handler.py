@@ -29,7 +29,7 @@ def submit_query_endpoint(request: SubmitQueryRequest) -> QueryModel:
 
     query_response = query_rag(request.query_text)
 
-    # Create the query item, and put it into the data-base.
+    # Create the query item, and put it into the dynamoDB.
     new_query = QueryModel(
         query_text=request.query_text,
         answer_text=query_response.response_text,
