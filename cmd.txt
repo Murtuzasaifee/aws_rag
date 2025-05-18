@@ -1,6 +1,8 @@
 ## Build the docker container
 docker build --platform linux/amd64 -t aws_rag_app .
 
+## Run command
+docker run --platform linux/amd64 --rm -it -p 8000:8000 --env-file .env --entrypoint python aws_rag_app src/app_api_handler.py
 
 ## Run the container with explicit credentials
 docker run --platform linux/amd64 --rm -it \
@@ -13,7 +15,5 @@ docker run --platform linux/amd64 --rm -it \
 
 ## Run command with internal env not picking
 docker run --platform linux/amd64 --rm -it -p 8000:8000 -v ~/.aws:/root/.aws --entrypoint python aws_rag_app src/app_api_handler.py
-
-
 
 
