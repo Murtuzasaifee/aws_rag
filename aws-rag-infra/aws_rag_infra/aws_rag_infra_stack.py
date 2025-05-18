@@ -8,13 +8,14 @@ from aws_cdk import (
 )
 from constructs import Construct
 
-class RagCdkInfraStack(Stack):
+class AwsRagInfraStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
         # Create a DynamoDB table to store the query data and results
         rag_query_table = dynamodb.Table(
             self, "RagQueryTable",
+            table_name="RagQueryTable",
             partition_key=dynamodb.Attribute(
                 name="query_id", 
                 type=dynamodb.AttributeType.STRING
