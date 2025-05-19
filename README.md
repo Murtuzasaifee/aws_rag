@@ -116,3 +116,9 @@ The application uses Meta Llama 3 70B by default. To change the model, modify th
 ## Security Note
 
 Ensure you're using environment variables or AWS IAM roles for credentials in production instead of hardcoded credentials.
+
+## ❤️ Made with Love
+
+Built with passion to automate the process.
+
+If you find this project useful, please consider giving it a star ⭐
